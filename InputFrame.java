@@ -4,11 +4,13 @@
  */
 package converter;
 
+import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -33,17 +35,50 @@ public class InputFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        convert2 = new javax.swing.JButton();
-        copy = new javax.swing.JButton();
-        convert = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         Celsius = new javax.swing.JTextField();
         f = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        convert2 = new javax.swing.JButton();
+        Kelvin1 = new javax.swing.JButton();
+        copy1 = new javax.swing.JButton();
+        convert1 = new javax.swing.JButton();
+        copy = new javax.swing.JButton();
+        convert = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        Kelvin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tempature Unity Converter");
+        setTitle("Tempature Unit Converter");
         setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(30, 33, 36));
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(30, 33, 36));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Input");
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Output");
+
+        Celsius.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CelsiusActionPerformed(evt);
+            }
+        });
+        Celsius.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CelsiusKeyTyped(evt);
+            }
+        });
+
+        f.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fKeyTyped(evt);
+            }
+        });
 
         convert2.setText("Copy");
         convert2.addActionListener(new java.awt.event.ActionListener() {
@@ -52,70 +87,120 @@ public class InputFrame extends javax.swing.JFrame {
             }
         });
 
-        copy.setText("Fahrenheit");
+        Kelvin1.setText("Kelvin to Fahrenheit");
+        Kelvin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Kelvin1ActionPerformed(evt);
+            }
+        });
+
+        copy1.setText("Fahrenheit to Kelvin");
+        copy1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copy1ActionPerformed(evt);
+            }
+        });
+
+        convert1.setText("Celcius to Kelvin");
+        convert1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                convert1ActionPerformed(evt);
+            }
+        });
+
+        copy.setText("Fahrenheit to Celcius");
         copy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 copyActionPerformed(evt);
             }
         });
 
-        convert.setText("Celcius");
+        convert.setText("Celcius to Fahrenheit");
         convert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 convertActionPerformed(evt);
             }
         });
 
-        Celsius.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Set the unit for Input");
+
+        Kelvin.setText("Kelvin to Celcius");
+        Kelvin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CelsiusActionPerformed(evt);
+                KelvinActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Output");
-
-        jLabel1.setText("Input");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Celsius, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(f, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(convert2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(122, 122, 122)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(copy)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Kelvin))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(convert)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(convert1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Kelvin1)
+                            .addComponent(copy1))))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Celsius)
+                    .addComponent(f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(convert2))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(copy)
+                    .addComponent(Kelvin)
+                    .addComponent(Kelvin1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(convert1)
+                    .addComponent(copy1)
+                    .addComponent(convert))
+                .addGap(0, 23, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(122, 122, 122)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(convert, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(copy, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(convert2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Celsius, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(f, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Celsius, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(convert)
-                    .addComponent(copy)
-                    .addComponent(convert2))
-                .addContainerGap(17, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -138,7 +223,7 @@ public class InputFrame extends javax.swing.JFrame {
             double converted = (d-32)*5/9;
             String s = String.valueOf(converted);
             System.out.println(converted);
-            f.setText(s + "C°");
+            f.setText(s + "°C");
         }
     }//GEN-LAST:event_copyActionPerformed
 
@@ -152,7 +237,7 @@ public class InputFrame extends javax.swing.JFrame {
             double converted =(d*9/5)+32;
             String s = String.valueOf(converted);
             System.out.println(converted);
-            f.setText(s + "F°");
+            f.setText(s + "°F");
         }
 
     }//GEN-LAST:event_convertActionPerformed
@@ -160,6 +245,72 @@ public class InputFrame extends javax.swing.JFrame {
     private void CelsiusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CelsiusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CelsiusActionPerformed
+
+    private void KelvinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KelvinActionPerformed
+        String celsius = Celsius.getText();
+
+        String lowercased = celsius.toLowerCase();
+        if(!lowercased.contains("a") && !lowercased.contains("b") && !lowercased.contains("c")&&!lowercased.contains("d")&&!lowercased.contains("e")&&!lowercased.contains("f")&&!lowercased.contains("g")&&!lowercased.contains("h")&&!lowercased.contains("i")&&!lowercased.contains("j")&&!lowercased.contains("k")&&!lowercased.contains("l")&&!lowercased.contains("m")&&!lowercased.contains("n")&&!lowercased.contains("o")&&!lowercased.contains("p")&&!lowercased.contains("q")&&!lowercased.contains("r")&&!lowercased.contains("s")&&!lowercased.contains("t")&&!lowercased.contains("u")&&!lowercased.contains("v")&&!lowercased.contains("x")&&!lowercased.contains("y")&&!lowercased.contains("z")){
+            double d =Double.parseDouble(celsius);
+            double converted =d-273.15;
+            String s = String.valueOf(converted);
+            System.out.println(converted);
+            f.setText(s + "°C");
+        }
+    }//GEN-LAST:event_KelvinActionPerformed
+
+    private void Kelvin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kelvin1ActionPerformed
+        String celsius = Celsius.getText();
+
+        String lowercased = celsius.toLowerCase();
+        if(!lowercased.contains("a") && !lowercased.contains("b") && !lowercased.contains("c")&&!lowercased.contains("d")&&!lowercased.contains("e")&&!lowercased.contains("f")&&!lowercased.contains("g")&&!lowercased.contains("h")&&!lowercased.contains("i")&&!lowercased.contains("j")&&!lowercased.contains("k")&&!lowercased.contains("l")&&!lowercased.contains("m")&&!lowercased.contains("n")&&!lowercased.contains("o")&&!lowercased.contains("p")&&!lowercased.contains("q")&&!lowercased.contains("r")&&!lowercased.contains("s")&&!lowercased.contains("t")&&!lowercased.contains("u")&&!lowercased.contains("v")&&!lowercased.contains("x")&&!lowercased.contains("y")&&!lowercased.contains("z")){
+            double d =Double.parseDouble(celsius);
+            double converted =(d-273.15)*9/5+32;
+            String s = String.valueOf(converted);
+            System.out.println(converted);
+            f.setText(s + "°F");
+        }
+    }//GEN-LAST:event_Kelvin1ActionPerformed
+
+    private void copy1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copy1ActionPerformed
+       String celsius = Celsius.getText();
+
+        String lowercased = celsius.toLowerCase();
+        if(!lowercased.contains("a") && !lowercased.contains("b") && !lowercased.contains("c")&&!lowercased.contains("d")&&!lowercased.contains("e")&&!lowercased.contains("f")&&!lowercased.contains("g")&&!lowercased.contains("h")&&!lowercased.contains("i")&&!lowercased.contains("j")&&!lowercased.contains("k")&&!lowercased.contains("l")&&!lowercased.contains("m")&&!lowercased.contains("n")&&!lowercased.contains("o")&&!lowercased.contains("p")&&!lowercased.contains("q")&&!lowercased.contains("r")&&!lowercased.contains("s")&&!lowercased.contains("t")&&!lowercased.contains("u")&&!lowercased.contains("v")&&!lowercased.contains("x")&&!lowercased.contains("y")&&!lowercased.contains("z")){
+            double d =Double.parseDouble(celsius);
+            double converted =(d-32)*5/9+273.15;
+            String s = String.valueOf(converted);
+            System.out.println(converted);
+            f.setText(s + "°K");
+        }
+    }//GEN-LAST:event_copy1ActionPerformed
+
+    private void convert1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convert1ActionPerformed
+        String celsius = Celsius.getText();
+
+        String lowercased = celsius.toLowerCase();
+        if(!lowercased.contains("a") && !lowercased.contains("b") && !lowercased.contains("c")&&!lowercased.contains("d")&&!lowercased.contains("e")&&!lowercased.contains("f")&&!lowercased.contains("g")&&!lowercased.contains("h")&&!lowercased.contains("i")&&!lowercased.contains("j")&&!lowercased.contains("k")&&!lowercased.contains("l")&&!lowercased.contains("m")&&!lowercased.contains("n")&&!lowercased.contains("o")&&!lowercased.contains("p")&&!lowercased.contains("q")&&!lowercased.contains("r")&&!lowercased.contains("s")&&!lowercased.contains("t")&&!lowercased.contains("u")&&!lowercased.contains("v")&&!lowercased.contains("x")&&!lowercased.contains("y")&&!lowercased.contains("z")){
+            double d =Double.parseDouble(celsius);
+            double converted =d+273.15;
+            String s = String.valueOf(converted);
+            System.out.println(converted);
+            f.setText(s + "°K");
+        }
+    }//GEN-LAST:event_convert1ActionPerformed
+
+    private void CelsiusKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CelsiusKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_CelsiusKeyTyped
+
+    private void fKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_fKeyTyped
 
     /**
      * @param args the command line arguments
@@ -198,11 +349,17 @@ public class InputFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextField Celsius;
+    public javax.swing.JButton Kelvin;
+    public javax.swing.JButton Kelvin1;
     public javax.swing.JButton convert;
+    public javax.swing.JButton convert1;
     public javax.swing.JButton convert2;
     public javax.swing.JButton copy;
+    public javax.swing.JButton copy1;
     public javax.swing.JTextField f;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
