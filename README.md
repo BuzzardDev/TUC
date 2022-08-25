@@ -6,10 +6,6 @@ INPUT: any number you wish to convert
 
 Output: Outputs the converted
 
-Fahrenheit Button: tells the program that the input is equal to Fahrenheit and will convert to Celsius 
-
-Celsius Button: tells the program that the input is equal to Celsius and will convert to Fahrenheit 
-
 ![Screenshot 2022-08-25 152358](https://user-images.githubusercontent.com/92489118/186779420-74119e8c-dd5f-4b8d-9527-f307e3b328d3.png)
 ![Screenshot 2022-08-25 152414](https://user-images.githubusercontent.com/92489118/186779423-4650d9d7-0fbc-4d3e-a008-1dd5aede9261.png)
 ![Screenshot 2022-08-25 152427](https://user-images.githubusercontent.com/92489118/186779424-5351d226-ef4c-4335-bc99-7f05981e8dd9.png)
